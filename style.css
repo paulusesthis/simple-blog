@@ -20,7 +20,8 @@ header {
   position: sticky;
   top: 0;
   width: 100%;
-  padding: 7px 0;
+  padding: 7px 16px;
+  z-index: 1000;
 }
 
 nav {
@@ -29,17 +30,48 @@ nav {
   align-items: center;
   gap: 15px;
   font-size: 16px;
+  flex-wrap: wrap;
 }
 
 nav a {
   padding: 10px 14px;
   text-decoration: none;
   color: white;
+  white-space: nowrap;
 }
 
 nav a:hover {
   background-color: rgba(0, 0, 0, 0.35);
   border-radius: 6px;
+}
+
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: auto;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: white;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-toggle.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .dropbtn {
@@ -48,6 +80,8 @@ nav a:hover {
   padding: 10px 14px;
   font-size: 16px;
   border: none;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 .dropdown {
@@ -60,6 +94,8 @@ nav a:hover {
   background-color: #7f0883;
   min-width: 160px;
   top: 40px;
+  z-index: 999;
+  border-radius: 0 0 6px 6px;
 }
 
 .dropdown-content a {
@@ -67,6 +103,7 @@ nav a:hover {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  white-space: nowrap;
 }
 
 .dropdown-content a:hover {
@@ -82,30 +119,73 @@ nav a:hover {
   border-radius: 7px;
 }
 
+@media (max-width: 768px) {
+  .dropdown-content {
+    position: static;
+    min-width: 100%;
+    border-radius: 0;
+    top: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    width: 100%;
+  }
+
+  nav.open {
+    max-height: 600px; 
+  }
+
+  nav a,
+  .dropbtn {
+    width: 100%;
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .dropdown {
+    width: 100%;
+  }
+}
+
 .news {
   max-width: 900px;
   margin: 40px auto;
   padding: 20px;
+  width: 100%; 
 }
 
 .heading h1 {
-  font-size: 38px;
+  font-size: clamp(24px, 5vw, 38px);
   font-weight: 700;
   margin-bottom: 20px;
 }
 
 .heading img {
   width: 100%;
+  height: auto; 
   border-radius: 6px;
   margin-bottom: 30px;
+  display: block;
 }
 
 .body-text {
-  font-size: 18px;
+  font-size: clamp(15px, 2.5vw, 18px);
 }
 
 .body-text h2 {
-  font-size: 26px;
+  font-size: clamp(20px, 4vw, 26px);
   margin-top: 40px;
   margin-bottom: 15px;
 }
@@ -128,6 +208,8 @@ nav a:hover {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.1s ease-in-out;
+  z-index: 999;
+  white-space: nowrap;
 }
 
 .show {
@@ -137,4 +219,24 @@ nav a:hover {
 
 .go-top:hover {
   background: #e12a2ae8;
+}
+
+@media (max-width: 480px) {
+  .go-top {
+    bottom: 16px;
+    right: 16px;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 360px) {
+  .news {
+    padding: 12px;
+  }
+
+  nav a,
+  .dropbtn {
+    font-size: 14px;
+  }
 }
