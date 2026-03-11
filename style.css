@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: justify;
+}
+
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background: #ffffff;
+  line-height: 1.6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+header {
+  background-color: #7f0883;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 7px 0;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  font-size: 16px;
+}
+
+nav a {
+  padding: 10px 14px;
+  text-decoration: none;
+  color: white;
+}
+
+nav a:hover {
+  background-color: rgba(0, 0, 0, 0.35);
+  border-radius: 6px;
+}
+
+.dropbtn {
+  background: transparent;
+  color: white;
+  padding: 10px 14px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #7f0883;
+  min-width: 160px;
+  top: 40px;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #00000059;
+  border-radius: 7px;
+}
+
+.news {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.heading h1 {
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.heading img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 30px;
+}
+
+.body-text {
+  font-size: 18px;
+}
+
+.body-text h2 {
+  font-size: 26px;
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+
+.body-text p {
+  margin-bottom: 18px;
+  color: #333;
+}
+
+.go-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 12px 18px;
+  background: #7f0883;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.show {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.go-top:hover {
+  background: #e12a2ae8;
+}
